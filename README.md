@@ -223,15 +223,9 @@ run the following command:
 docker compose down && git fetch origin main && git reset --hard origin/main && bash update.sh
 ```
 
-After doing that, I recommend upgrading to the most recent version by running the following
-command:
-
-```
-bash update.sh
-```
-
-This script will stop the application, pull the latest code, run upgrade scripts, and restart
-the application.
+The  `bash update.sh` script onh the end of this command will
+stop the application, pull the latest code, run upgrade scripts, restart
+the application and finally clean up any orphaned docker files.
 
 # How to install Catcher
 
