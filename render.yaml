@@ -1,7 +1,8 @@
+dockerComposeFilePath: docker-compose.yml
+
 services:
   - type: web
     name: cinema-catcher-app
     env: docker
     plan: free
-    dockerComposeFilePath: docker-compose.yml
     autoDeploy: true
