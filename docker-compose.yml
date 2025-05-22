@@ -46,7 +46,7 @@ services:
     restart: always
     # Set the HOSTNAME the catcher instance will be know as in the conteiner.
     # for example, catcher-CINEMA-LOCATION such as catcher-chain-state or catcher-clubmovie-forbes
-    hostname: ${CATCHER_HOSTNAME}
+    hostname: cinema-city-tms
     security_opt:
       - seccomp:unconfined
     privileged: true
@@ -70,8 +70,8 @@ services:
       - /opt/dcinenet/storage:/opt/dcinenet/storage
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=${LOCAL_TIMEZONE_NAME}'
-      - 'IN_PRODUCTION=${IN_PRODUCTION:-True}'
+      - 'TIMEZONE_NAME=Europe/Lisbon
+      - 'IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
@@ -105,8 +105,8 @@ services:
       - /opt/dcinenet/storage:/opt/dcinenet/storage
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=${LOCAL_TIMEZONE_NAME}'
-      - 'IN_PRODUCTION=${IN_PRODUCTION:-True}'
+      - 'TIMEZONE_NAME=Europe/Lisbon
+      - 'IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
@@ -131,8 +131,8 @@ services:
       - /opt/dcinenet/storage:/opt/dcinenet/storage
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=${LOCAL_TIMEZONE_NAME}'
-      - 'IN_PRODUCTION=${IN_PRODUCTION:-True}'
+      - 'TIMEZONE_NAME=Europe/Lisbon
+      - 'IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
@@ -156,8 +156,8 @@ services:
       - /opt/dcinenet/storage:/opt/dcinenet/storage
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=${LOCAL_TIMEZONE_NAME}'
-      - 'IN_PRODUCTION=${IN_PRODUCTION:-True}'
+      - 'TIMEZONE_NAME=Europe/Lisbon
+      - 'IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
@@ -177,8 +177,8 @@ services:
       - redis
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=${LOCAL_TIMEZONE_NAME}'
-      - 'IN_PRODUCTION=${IN_PRODUCTION:-True}'
+      - 'TIMEZONE_NAME=Europe/Lisbon
+      - 'IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
@@ -195,7 +195,7 @@ services:
       - backend_network
     # this must be set to the exposed IP adress on the projection network.
     extra_hosts:
-      - "host.docker.internal:${EXPOSED_IP_PROJECTION_NETWORK}"
+      - "host.docker.internal:10.1.1.4
     logging:
       driver: "json-file"
       options:
@@ -216,7 +216,7 @@ services:
       - /opt/catcher/ftpserver:/opt/catcher/ftpserver
     # this must be set to the exposed IP adress on the projection network.
     extra_hosts:
-      - "host.docker.internal:${EXPOSED_IP_PROJECTION_NETWORK}"
+      - "host.docker.internal:10.1.1.4"
     depends_on:
       - redis
     logging:
@@ -238,7 +238,7 @@ services:
     depends_on:
       - redis
     extra_hosts:
-      - "host.docker.internal:${EXPOSED_IP_PROJECTION_NETWORK}"
+      - "host.docker.internal:10.1.1.4"
     logging:
       driver: "json-file"
       options:
@@ -272,9 +272,9 @@ services:
       - NB_MANAGEMENT_URL=https://lighthouse.digitall.net.au:443
       - NB_ADMIN_URL=https://lighthouse.digitall.net.au:443
       - NB_LOG_LEVEL=warn
-      - NB_HOSTNAME=${CATCHER_HOSTNAME:?Error CATCHER_HOSTNAME is not set in .env}
+      - NB_HOSTNAME=cinema-city-tms
       - NB_ALLOW_SERVER_SSH=true
-      - CATCHER_HOSTNAME=${CATCHER_HOSTNAME}
+      - CATCHER_HOSTNAME=cinema-city-tms
     privileged: true
     volumes:
       - ./netbird-client-data:/var/lib/netbird
