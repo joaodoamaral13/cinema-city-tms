@@ -70,8 +70,8 @@ services:
       - /opt/dcinenet/storage:/opt/dcinenet/storage
     # IMPORTANT, set the name of your timezone here.
     environment:
-      - 'TIMEZONE_NAME=Europe/Lisbon
-      - 'IN_PRODUCTION=True
+      - TIMEZONE_NAME=Europe/Lisbon
+      - IN_PRODUCTION=True
     logging:
       driver: "json-file"
       options:
